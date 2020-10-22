@@ -18,9 +18,9 @@ The app does the following:
 
 ## How to Start Up the Frontend
 
+```npm install
+npm start
 ```
-npm install
-npm start ```
 
 ### How to Start Up the Backend
 
