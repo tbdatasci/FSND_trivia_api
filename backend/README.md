@@ -35,6 +35,10 @@ With Postgres running, restore a database using the trivia.psql file provided. F
 ```bash
 psql trivia < trivia.psql
 ```
+or to assign a specific user:
+```bash
+psql -U <username> trivia < trivia.psql
+```
 
 ## Running the server
 
@@ -42,9 +46,16 @@ From within the `backend` directory first ensure you are working using your crea
 
 To run the server, execute:
 
+for Mac:
 ```bash
 export FLASK_APP=flaskr
 export FLASK_ENV=development
+flask run
+```
+or for Windows:
+```bash
+set FLASK_APP=flaskr
+set FLASK_ENV=development
 flask run
 ```
 
