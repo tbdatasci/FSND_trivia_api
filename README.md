@@ -18,12 +18,40 @@ The app does the following:
 
 ## How to Start Up the Frontend
 
+### Full Instructions at [`./frontend/`](./frontend/README.md)
+
+### TLDR
+
 ```
 npm install
 npm start
 ```
 
-### How to Start Up the Backend
+## How to Fire Up the Backend
+
+### Full Instructions at [`./backend/`](./backend/README.md)
+
+### TLDR
+
+```bash
+# Install requirements
+pip install -r requirements.txt
+# Create the trivia database
+psql -U <username> trivia < trivia.psql
+# Run flask with given conditions.  (Mac users should substitute "export" for "set" below)
+set FLASK_APP=app.py
+set FLASK_ENV=development
+flask run
+```
+To run unit tests to ensure expected functionality:
+```bash
+dropdb trivia_test (for Windows: drop database trivia_test)
+createdb trivia_test (for Windows: create database trivia_test)
+psql trivia_test < trivia.psql
+python test_flaskr.py
+```
+
+
 
 
 
