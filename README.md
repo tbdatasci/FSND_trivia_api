@@ -75,10 +75,10 @@ The API will return four error types when requests fail:
 4.  500: Internal Server Error
 
 ## Endpoints
-### GET /categories
+### GET /api/categories
 * General
-  * Returns a list of category objects, stuff_1, stuff_2
-  * Results are paginated in groups of 10.  Include a request argument to choose page number, starting from 1.
+  * Returns a dictionary of trivia categories where each has an ID and category text.
+  * Returns success status.
 * Sample: `curl http://localhost:5000/api/categories`
 ```bash
 {
@@ -91,6 +91,78 @@ The API will return four error types when requests fail:
     "6": "Sports"
   },
   "success": true
+}
+```
+
+### GET /api/questions
+* General
+  * Returns a dictionary of trivia categories where each has an ID and category text.
+  * Returns current category (if any).
+  * Returns a list of questions, each containing answer, category, difficulty, id, and question.
+  * Paginates to only 10 results per page.
+  * Returns success status.
+  * Returns total number of questions in database.
+* Sample: `curl http://localhost:5000/api/questions`
+```bash
+{
+  "categories": {
+    "1": "Science",
+    "2": "Art",
+    "3": "Geography",
+    "4": "History",
+    "5": "Entertainment",
+    "6": "Sports"
+  },
+  "current_category": null,
+  "questions": [
+    {
+      "answer": "Maya Angelou",
+      "category": 4,
+      "difficulty": 2,
+      "id": 5,
+      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+    },
+    ... I removed the other eight questions to make this more readable ...
+    {
+      "answer": "The Palace of Versailles",
+      "category": 3,
+      "difficulty": 3,
+      "id": 14,
+      "question": "In which royal palace would you find the Hall of Mirrors?"
+    }
+  ],
+  "success": true,
+  "total_questions": 21
+}
+```
+
+### DELETE /api/questions/<int:question_id>
+* General
+  * Given a question_id, it will delete the question from our database.
+  * Returns question_id of deleted question, a paginated list of the questions still in the database, success status, and the total number of questions still in the database.
+* Sample: `curl -X DELETE http://localhost:5000/api/questions/26`
+```bash
+{
+  "deleted": 26,
+  "questions": [
+    {
+      "answer": "Apollo 13",
+      "category": 5,
+      "difficulty": 4,
+      "id": 2,
+      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+    },
+    ... I removed the other eight questions to make this more readable ...
+    {
+      "answer": "The Palace of Versailles",
+      "category": 3,
+      "difficulty": 3,
+      "id": 14,
+      "question": "In which royal palace would you find the Hall of Mirrors?"
+    }
+  ],
+  "success": true,
+  "total_questions": 20
 }
 ```
 
