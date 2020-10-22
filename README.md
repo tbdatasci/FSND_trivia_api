@@ -16,11 +16,13 @@ The app does the following:
 4) Search for questions based on a text query string.
 5) Play the quiz game, randomizing either all questions or within a specific category. 
 
+# Getting Started
+
 ## How to Start Up the Frontend
 
 ### Full Instructions at [`./frontend/`](./frontend/README.md)
 
-### TLDR
+### TL;DR
 
 ```
 npm install
@@ -31,7 +33,7 @@ npm start
 
 ### Full Instructions at [`./backend/`](./backend/README.md)
 
-### TLDR
+### TL;DR
 
 ```bash
 # Install requirements
@@ -51,22 +53,30 @@ psql trivia_test < trivia.psql
 python test_flaskr.py
 ```
 
+# API Reference
+## Notes
+1. At present, this app can only be run locally.  The back-end runs at http://127.0.0.1:5000/, and the front-end runs at http://localhost:3000/.
+2. At present, this app does not require authentication or API keys.
+3. CORS is enabled.
+
+## Error Handling
+Errors are returned as JSON objects in the following format:
+```bash
+{
+  "success": False,
+  "error": 400,
+  "message": "Bad Request"
+}
+```
+The API will return four error types when requests fail:
+1.  400: Bad Request
+2.  404: Not Found
+3.  422: Unprocessable Entity:
+4.  500: Internal Server Error
 
 
 
 
-
-
-
-
-## Tasks
-
-There are `TODO` comments throughout project. Start by reading the READMEs in:
-
-1. [`./frontend/`](./frontend/README.md)
-2. [`./backend/`](./backend/README.md)
-
-We recommend following the instructions in those files in order. This order will look familiar from our prior work in the course.
 
 ## Starting and Submitting the Project
 
