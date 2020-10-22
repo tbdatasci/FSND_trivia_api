@@ -79,7 +79,7 @@ The API will return four error types when requests fail:
 * General
   * Returns a list of category objects, stuff_1, stuff_2
   * Results are paginated in groups of 10.  Include a request argument to choose page number, starting from 1.
-* Sample: curl http://localhost:5000/api/categories
+* Sample: `curl http://localhost:5000/api/categories`
 ```bash
 {
   "categories": {
