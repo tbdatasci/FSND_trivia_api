@@ -166,6 +166,57 @@ The API will return four error types when requests fail:
 }
 ```
 
+### POST /api/questions
+* General
+  #### Create Question ####
+  * Creates a new question from user input.
+  * Returns id of created question, success status, and the first 10 questions in the dataset.
+  #### Search Questions ####
+  * Can also search questions based on keyword(s) from user input.
+  * Returns questions that meet search criteria and success status.
+  
+* Sample of Create: `curl -X POST http://localhost:5000/api/questions -H "Content-Type: application/json" -d '{"question": "What is the meaning of the universe?", "answer": "12", "category": "1", "difficulty": 5}'`
+```bash
+{
+  "created": 27,
+  "questions": [
+    {
+      "answer": "Apollo 13",
+      "category": 5,
+      "difficulty": 4,
+      "id": 2,
+      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+    },
+    ... I removed the other eight questions to make this more readable ...
+    {
+      "answer": "The Palace of Versailles",
+      "category": 3,
+      "difficulty": 3,
+      "id": 14,
+      "question": "In which royal palace would you find the Hall of Mirrors?"
+    }
+  ],
+  "success": true,
+  "total_questions": 21
+}
+```
+
+* Sample of Search: `curl -X POST http://localhost:5000/api/questions -H "Content-Type: application/json" -d '{"searchTerm": "Giaconda"}`
+```bash
+{
+  "questions": [
+    {
+      "answer": "Mona Lisa",
+      "category": 2,
+      "difficulty": 3,
+      "id": 17,
+      "question": "La Giaconda is better known as what?"
+    }
+  ],
+  "success": true
+}
+```
+
 
 
 ## Starting and Submitting the Project
