@@ -18,7 +18,8 @@ The app does the following:
 
 ## How to Start Up the Frontend
 
-```npm install
+```
+npm install
 npm start
 ```
 
