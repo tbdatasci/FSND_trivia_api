@@ -217,6 +217,43 @@ The API will return four error types when requests fail:
 }
 ```
 
+### GET /api/categories/<int:category_id>/questions
+* General
+  * Given a category_id, it will get all of the questions within that category.
+  * Returns dictionary of the available categories, selected category, all the questions within that category, success status, and total questions within the category.
+* Sample: `curl http://localhost:5000/api/categories/6/questions`
+```bash
+{
+  "categories": {
+    "1": "Science",
+    "2": "Art",
+    "3": "Geography",
+    "4": "History",
+    "5": "Entertainment",
+    "6": "Sports"
+  },
+  "current_category": 6,
+  "questions": [
+    {
+      "answer": "Brazil",
+      "category": 6,
+      "difficulty": 3,
+      "id": 10,
+      "question": "Which is the only team to play in every soccer World Cup tournament?"
+    },
+    {
+      "answer": "Uruguay",
+      "category": 6,
+      "difficulty": 4,
+      "id": 11,
+      "question": "Which country won the first ever soccer World Cup in 1930?"
+    }
+  ],
+  "success": true,
+  "total_questions": 2
+}
+```
+
 
 
 ## Starting and Submitting the Project
