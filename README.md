@@ -74,7 +74,25 @@ The API will return four error types when requests fail:
 3.  422: Unprocessable Entity:
 4.  500: Internal Server Error
 
-
+## Endpoints
+### GET /categories
+* General
+  * Returns a list of category objects, stuff_1, stuff_2
+  * Results are paginated in groups of 10.  Include a request argument to choose page number, starting from 1.
+* Sample: curl http://localhost:5000/api/categories
+```bash
+{
+  "categories": {
+    "1": "Science",
+    "2": "Art",
+    "3": "Geography",
+    "4": "History",
+    "5": "Entertainment",
+    "6": "Sports"
+  },
+  "success": true
+}
+```
 
 
 
