@@ -71,7 +71,7 @@ Errors are returned as JSON objects in the following format:
 The API will return four error types when requests fail:
 1.  400: Bad Request
 2.  404: Not Found
-3.  422: Unprocessable Entity:
+3.  422: Unprocessable Entity
 4.  500: Internal Server Error
 
 ## Endpoints
