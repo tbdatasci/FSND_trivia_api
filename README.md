@@ -254,7 +254,7 @@ The API will return four error types when requests fail:
 }
 ```
 
-### POST /api/quizzes **********************************************
+### POST /api/quizzes
 * General
   * This is where the quiz is played.
   * A random question will be given to the player.
