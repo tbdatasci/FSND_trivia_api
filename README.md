@@ -77,6 +77,7 @@ The API will return four error types when requests fail:
 ## Endpoints
 ### GET /api/categories
 * General
+  * Request Parameters: None
   * Returns a dictionary of trivia categories where each has an ID and category text.
   * Returns success status.
 * Sample: `curl http://localhost:5000/api/categories`
@@ -96,6 +97,7 @@ The API will return four error types when requests fail:
 
 ### GET /api/questions
 * General
+  * Request Parameters: None
   * Returns a dictionary of trivia categories where each has an ID and category text.
   * Returns current category (if any).
   * Returns a list of questions, each containing answer, category, difficulty, id, and question.
@@ -138,7 +140,7 @@ The API will return four error types when requests fail:
 
 ### DELETE /api/questions/<int:question_id>
 * General
-  * Given a question_id, it will delete the question from our database.
+  * Request Parameters: question_id
   * Returns question_id of deleted question, a paginated list of the questions still in the database, success status, and the total number of questions still in the database.
 * Sample: `curl -X DELETE http://localhost:5000/api/questions/26`
 ```bash
@@ -170,9 +172,11 @@ The API will return four error types when requests fail:
 * General
   #### Create Question ####
   * Creates a new question from user input.
+  * Request Parameters: Question form data in application/json type
   * Returns id of created question, success status, and the first 10 questions in the dataset.
   #### Search Questions ####
   * Can also search questions based on keyword(s) from user input.
+  * Request Parameters: Search term form data in application/json type
   * Returns questions that meet search criteria and success status.
   
 * Sample of Create: `curl -X POST http://localhost:5000/api/questions -H "Content-Type: application/json" -d '{"question": "What is the meaning of the universe?", "answer": "12", "category": "1", "difficulty": 5}'`
@@ -220,6 +224,7 @@ The API will return four error types when requests fail:
 ### GET /api/categories/<int:category_id>/questions
 * General
   * Given a category_id, it will get all of the questions within that category.
+  * Request Parameters: category_id
   * Returns dictionary of the available categories, selected category, all the questions within that category, success status, and total questions within the category.
 * Sample: `curl http://localhost:5000/api/categories/6/questions`
 ```bash
@@ -259,7 +264,7 @@ The API will return four error types when requests fail:
   * This is where the quiz is played.
   * A random question will be given to the player.
   * This random question will be filtered by category if the player chooses to.
-  * The request must include a list of previous questions and the selected category.
+  * Request Parameters: a list of previous questions and the selected category.  All in the application/json format.
   * The response contains a dictionary about the given question as well as a success status.
 * Sample when on the first question and filtering by the History category: `curl -X POST http://localhost:5000/api/quizzes -H "Content-Type: application/json" -d '{"previous_questions":[],"quiz_category":{"type":"History","id":4}}'`
 ```bash
