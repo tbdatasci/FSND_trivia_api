@@ -261,7 +261,7 @@ The API will return four error types when requests fail:
   * This random question will be filtered by category if the player chooses to.
   * The request must include a list of previous questions and the selected category.
   * The response contains a dictionary about the given question as well as a success status.
-* Sample when on the first question and filtering by the History category: `curl -X POST http://localhost:5000/api/quizzes -H "Content-Type: application/json" -d '{"previous_questions":[],"quiz_category":{"type":"History","id":4}}'
+* Sample when on the first question and filtering by the History category: `curl -X POST http://localhost:5000/api/quizzes -H "Content-Type: application/json" -d '{"previous_questions":[],"quiz_category":{"type":"History","id":4}}'`
 ```bash
 {
   "question": {
